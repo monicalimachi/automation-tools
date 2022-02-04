@@ -48,7 +48,10 @@ resource "aws_launch_configuration" "web" {
     #associate_public_ip_address = true
     user_data               = <<EOF
   #!/bin/sh
+  sudo yum update -y
+  sleep 10
   sudo yum install -y nginx java-1.8.0-openjdk.x86_64
+  sleep 10
   sudo service nginx start
   sudo sed -e 's/root/#: &/' /etc/nginx/nginx.conf
   sudo sed -i '/listen       80;/a location / { proxy_pass http://127.0.0.1:8080; }'  /etc/nginx/nginx.conf

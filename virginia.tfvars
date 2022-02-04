@@ -6,4 +6,4 @@ vpc-cidr = "10.10.30.0/24"
 subnet-cidr-public = "10.10.30.0/27"
 subnet-cidr-private = "10.10.30.64/27"
 
-
+instance_type="t2.micro"
